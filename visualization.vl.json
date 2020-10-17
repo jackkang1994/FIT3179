@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Unemployment rate from 2010 to 2014",
+  "title": "Average Unemployment rate from 2010 to 2014",
   "width": 800,
   "height": 600,
   "data": {
