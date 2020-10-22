@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Average Unemployment rate from 2010 to 2014",
+  "width": "container",
+  "data": {
+    "url": "https://raw.githubusercontent.com/jackkang1994/FIT3179/main/worldwide%20(1).json",
+    "format": {"type": "topojson", "feature": "worldwide"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jackkang1994/FIT3179/main/API_ILO_country_YU.csv"
+        },
+        "key": "Country",
+        "fields": ["Average"]
+      }
+    }
+  ],
+  "projection": {"type": "equirectangular"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Average",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Country"},
+      {"field": "Average", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
